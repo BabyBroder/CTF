@@ -189,6 +189,7 @@ static void pci_maria_register_types(void) {
 - The INTERFACE_CONVENTIONAL_PCI_DEVICE interface represents the standard PCI device behavior.
 
 [type_register_static](https://elixir.bootlin.com/qemu/v6.2.0/source/qom/object.c#L154), [document](https://elixir.bootlin.com/qemu/v6.2.0/source/include/qom/object.h#L818)
+
 ![type_register_static](images/pci_maria_register_types/type_register_static.png)
 ![type_register_static_document](images/pci_maria_register_types/type_register_static_document.png)
 
