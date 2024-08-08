@@ -181,10 +181,12 @@ static void pci_maria_register_types(void) {
 ```
 
 [InterfaceInfo](https://elixir.bootlin.com/qemu/v6.2.0/source/include/qom/object.h#L504)
+
 ![InterfaceInfo](images/pci_maria_register_types/InterfaceInfo.png)
 - InterfaceInfo structures includes a single entry with the INTERFACE_CONVENTIONAL_PCI_DEVICE interface.
 
 [INTERFACE_CONVENTIONAL_PCI_DEVICE](https://elixir.bootlin.com/qemu/v6.2.0/source/include/hw/pci/pci.h#L209)
+
 ![INTERFACE_CONVENTIONAL_PCI_DEVICE](images/pci_maria_register_types/INTERFACE_CONVENTIONAL_PCI_DEVICE.png)
 - The INTERFACE_CONVENTIONAL_PCI_DEVICE interface represents the standard PCI device behavior.
 
@@ -195,6 +197,7 @@ static void pci_maria_register_types(void) {
 
 
 [TypeInfo](https://elixir.bootlin.com/qemu/v6.2.0/source/include/qom/object.h#L413)
+
 ![TypeInfo](images/pci_maria_register_types/TypeInfo.png)
 - This function registers the “Maria” device type with QEMU. It ensures that QEMU recognizes and manages this custom device type.
 
@@ -204,5 +207,6 @@ type_init(pci_maria_register_types)
 ```
 
 [type_init](https://elixir.bootlin.com/qemu/v6.2.0/source/include/qemu/module.h#L56)
+
 ![type_init](images/type_init/type_init.png)
 - The type_init function initializes the custom device type registration. It ensures that the “Maria” device type is available during QEMU startup.
