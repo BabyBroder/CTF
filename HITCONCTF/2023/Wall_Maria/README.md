@@ -14,15 +14,15 @@ typedef struct {
 ```
 
 
-[PCIDevice](images/MariaState/PCI_device.png)
-[MemoryRegion](images/MariaState/Memory_region.png)
+![PCIDevice](images/MariaState/PCI_device.png)
+![MemoryRegion](images/MariaState/Memory_region.png)
 
 Look at [PCIDevice](https://elixir.bootlin.com/qemu/v6.2.0/source/include/hw/pci/pci.h#L268), [MemoryRegion](https://elixir.bootlin.com/qemu/v6.2.0/source/include/exec/memory.h#L720)
 
 
 ## [DECLARE_INSTANCE_CHECKER](https://elixir.bootlin.com/qemu/v6.2.0/source/include/qom/object.h#L164)
 
-[DECLARE_INSTANCE_CHECKER](images/DECLARE_INSTANCE_CHECKER/DECLARE_INSTANCE_CHECKER.png)
+![DECLARE_INSTANCE_CHECKER](images/DECLARE_INSTANCE_CHECKER/DECLARE_INSTANCE_CHECKER.png)
 
 ```cpp
 #define TYPE_PCI_MARIA_DEVICE "maria"
@@ -34,18 +34,18 @@ DECLARE_INSTANCE_CHECKER(MariaState, MARIA, TYPE_PCI_MARIA_DEVICE)
 
 [cpu_physical_memory_rw](https://elixir.bootlin.com/qemu/v6.2.0/source/softmmu/physmem.c#L2930)
 
-[cpu_physical_memory_rw](images/maria_mmio_func/cpu_physical_memory_rw.png)
+![cpu_physical_memory_rw](images/maria_mmio_func/cpu_physical_memory_rw.png)
 
 - The cpu_physical_memory_rw function performs an MMU lookup to convert a physical address to the corresponding virtual address using the current CPU settings.
 - The cpu_physical_memory_rw function in QEMU is responsible for accessing guest physical memory.
 - This function allows the CPU to read from or write to guest physical memory.
 
 [address_space_rw](https://elixir.bootlin.com/qemu/v6.2.0/source/include/exec/memory.h#L2498)
-[address_space_rw](images/maria_mmio_func/address_space_rw.png)
+![address_space_rw](images/maria_mmio_func/address_space_rw.png)
 
-[cpu_physical_memory_rw](images/cpu_physical_memory_rw/cpu_physical_memory_rw.png)
-[address_space_rw](images/cpu_physical_memory_rw/address_space_rw.png)
-[buf](images/cpu_physical_memory_rw/buf.png)
+![cpu_physical_memory_rw](images/cpu_physical_memory_rw/cpu_physical_memory_rw.png)
+![address_space_rw](images/cpu_physical_memory_rw/address_space_rw.png)
+![buf](images/cpu_physical_memory_rw/buf.png)
 ```cpp
 static uint64_t maria_mmio_read(void *opaque, hwaddr addr, unsigned size) {
     MariaState *maria = (MariaState *)opaque;
@@ -130,7 +130,7 @@ static void pci_maria_realize(PCIDevice *pdev, Error **errp) {
 
 
 [memory_region_init_io](https://elixir.bootlin.com/qemu/v6.2.0/source/softmmu/memory.c#L1519), [Documentation](https://elixir.bootlin.com/qemu/v6.2.0/source/include/exec/memory.h#L1176)
-[memory_region_init_io](images/pci_maria_realize/memory_region_init_io.png)
+![memory_region_init_io](images/pci_maria_realize/memory_region_init_io.png)
 
 `pci_register_bar(pdev, 0, PCI_BASE_ADDRESS_SPACE_MEMORY, &maria->mmio);`:
 - Registers the memory region (`mmio`) as a PCI Base Address Register (BAR) for the "Maria" device.
@@ -158,7 +158,7 @@ static void maria_class_init(ObjectClass *class, void *data) {
     set_bit(DEVICE_CATEGORY_MISC, dc->categories);
 }
 ```
-[maria_class_init](images/maria_class_init/DEVICE_CLASS.png)
+![maria_class_init](images/maria_class_init/DEVICE_CLASS.png)
 
 ## pci_maria_register_types
 ```cpp
@@ -181,20 +181,20 @@ static void pci_maria_register_types(void) {
 ```
 
 [InterfaceInfo](https://elixir.bootlin.com/qemu/v6.2.0/source/include/qom/object.h#L504)
-[InterfaceInfo](images/pci_maria_register_types/InterfaceInfo.png)
+![InterfaceInfo](images/pci_maria_register_types/InterfaceInfo.png)
 - InterfaceInfo structures includes a single entry with the INTERFACE_CONVENTIONAL_PCI_DEVICE interface.
 
 [INTERFACE_CONVENTIONAL_PCI_DEVICE](https://elixir.bootlin.com/qemu/v6.2.0/source/include/hw/pci/pci.h#L209)
-[INTERFACE_CONVENTIONAL_PCI_DEVICE](images/pci_maria_register_types/INTERFACE_CONVENTIONAL_PCI_DEVICE.png)
+![INTERFACE_CONVENTIONAL_PCI_DEVICE](images/pci_maria_register_types/INTERFACE_CONVENTIONAL_PCI_DEVICE.png)
 - The INTERFACE_CONVENTIONAL_PCI_DEVICE interface represents the standard PCI device behavior.
 
 [type_register_static](https://elixir.bootlin.com/qemu/v6.2.0/source/qom/object.c#L154), [document](https://elixir.bootlin.com/qemu/v6.2.0/source/include/qom/object.h#L818)
-[type_register_static](images/pci_maria_register_types/type_register_static.png)
-[type_register_static_document](images/pci_maria_register_types/type_register_static_document.png)
+![type_register_static](images/pci_maria_register_types/type_register_static.png)
+![type_register_static_document](images/pci_maria_register_types/type_register_static_document.png)
 
 
 [TypeInfo](https://elixir.bootlin.com/qemu/v6.2.0/source/include/qom/object.h#L413)
-[TypeInfo](images/pci_maria_register_types/TypeInfo.png)
+![TypeInfo](images/pci_maria_register_types/TypeInfo.png)
 - This function registers the “Maria” device type with QEMU. It ensures that QEMU recognizes and manages this custom device type.
 
 ## type_init
@@ -203,5 +203,5 @@ type_init(pci_maria_register_types)
 ```
 
 [type_init](https://elixir.bootlin.com/qemu/v6.2.0/source/include/qemu/module.h#L56)
-[type_init](images/type_init/type_init.png)
+![type_init](images/type_init/type_init.png)
 - The type_init function initializes the custom device type registration. It ensures that the “Maria” device type is available during QEMU startup.
