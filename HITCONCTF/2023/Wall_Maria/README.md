@@ -41,6 +41,7 @@ DECLARE_INSTANCE_CHECKER(MariaState, MARIA, TYPE_PCI_MARIA_DEVICE)
 - This function allows the CPU to read from or write to guest physical memory.
 
 [address_space_rw](https://elixir.bootlin.com/qemu/v6.2.0/source/include/exec/memory.h#L2498)
+
 ![address_space_rw](images/maria_mmio_func/address_space_rw.png)
 
 ![cpu_physical_memory_rw](images/cpu_physical_memory_rw/cpu_physical_memory_rw.png)
