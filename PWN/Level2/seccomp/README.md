@@ -38,7 +38,7 @@ This function uses prctl to initiate filter.
 
 Look at the source code; I see the third option that it is possible to change value at the specific address.
 
-It is not necessary to understand the filter. (*/ω＼*)
+It is not necessary to understand the filter. (*/ω＼*). (if you need, you can see [here](https://www.alfonsobeato.net/c/filter-and-modify-system-calls-with-seccomp-and-ptrace/))
 
 I can trigger filter by changing the follow of syscall_filter function (overwrite prctl got) to avoid initiating filter.
 
