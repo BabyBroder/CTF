@@ -20,6 +20,6 @@ I see that
 
 ![trigger](images/trigger_tcache.png)
 
-It has two tcachebins, although it recognize the pointer to malloc got.
+It has two tcachebins, although it recognizes the pointer to malloc got.
 
 Thus, I link tcache2 to malloc got instead of tcache1.(trigger number of tcachebins)
